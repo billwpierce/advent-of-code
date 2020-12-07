@@ -23,6 +23,8 @@ all_lines = original_input.readlines()
 
 # print(counter)
 
+# Part 2 Attempt 2
+
 ind = 0
 yesses = [[]]
 new_group = True
@@ -60,6 +62,8 @@ print(yesses)
 # print(count)
 print(cl)
 # print(sum(cl))
+
+# Part 2 Attempt 3
 
 ci = 0
 list_of_groups = [[]]

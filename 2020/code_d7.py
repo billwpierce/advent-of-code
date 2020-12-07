@@ -12,6 +12,12 @@ def RepresentsInt(s): # https://stackoverflow.com/questions/1265665/how-can-i-ch
 
 containers = {}
 
+def add_to_container(cnt_name, val):
+    if cnt_name in containers.keys():
+        containers[cnt_name].append(val)
+    else:
+        containers[cnt_name] = [val]
+
 for line in all_lines:
     split_space = line.split(" ")
     bag_name = split_space[0] + " " + split_space[1]
@@ -40,7 +46,7 @@ print(contains_sg)
 
 containers = {}
 
-def add_to_container(cnt_name, val, cnt):
+def add_to_container_2(cnt_name, val, cnt):
     if cnt_name in containers.keys():
         containers[cnt_name].append([val, cnt])
     else:
@@ -53,7 +59,7 @@ for line in all_lines:
         if RepresentsInt(split_space[i]):
             num = split_space[i]
             new_bag_name = split_space[i+1] + " " + split_space[i + 2]
-            add_to_container(bag_name, new_bag_name, num)
+            add_to_container_2(bag_name, new_bag_name, num)
 
 outer_dict = containers["shiny gold"].copy()
 
