@@ -1,4 +1,4 @@
-original_input = open('day5input.txt', 'r') 
+original_input = open('in05.txt', 'r') 
 all_lines = original_input.readlines()
 
 def get_row(row_str):

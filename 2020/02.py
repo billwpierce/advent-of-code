@@ -1,4 +1,4 @@
-original_input = open('day2input.txt', 'r') 
+original_input = open('in02.txt', 'r') 
 total_passwords = original_input.readlines() 
 
 part_1_valid = 0

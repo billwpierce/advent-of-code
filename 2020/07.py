@@ -1,4 +1,4 @@
-original_input = open('day7input.txt', 'r') 
+original_input = open('in07.txt', 'r') 
 all_lines = original_input.readlines()
 
 def RepresentsInt(s): # https://stackoverflow.com/questions/1265665/how-can-i-check-if-a-string-represents-an-int-without-using-try-except
@@ -70,7 +70,7 @@ def helper_two(lst):
         sumt += int(elem[1])
         if elem[0] in containers:
             print(elem[0])
-            sumt += int(elem[1]) * helper(containers[elem[0]])
+            sumt += int(elem[1]) * helper_two(containers[elem[0]])
     return sumt
 
 print(helper_two(outer_dict))

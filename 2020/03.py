@@ -1,4 +1,4 @@
-original_input = open('day3input.txt', 'r') 
+original_input = open('in03.txt', 'r') 
 all_lines = original_input.readlines() 
 
 # wraparound_x = len(all_lines[0])

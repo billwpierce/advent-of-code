@@ -1,4 +1,4 @@
-original_input = open('day1input.txt', 'r') 
+original_input = open('in01.txt', 'r') 
 all_lines = original_input.readlines() 
 
 print(all_lines)

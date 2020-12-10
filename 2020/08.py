@@ -1,4 +1,4 @@
-original_input = open('day8input.txt', 'r') 
+original_input = open('in08.txt', 'r') 
 all_lines = original_input.readlines()
 
 commands_one = []
