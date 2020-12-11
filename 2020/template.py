@@ -1,4 +1,4 @@
-f = open('day_input.txt', 'r') # Insert the correct day
+f = open('in__.txt', 'r') # Insert the correct day
 # Use one of these, depending on the day's challenges
 input = f.read().splitlines()  # Raw Reading
 # input = f.read().split("\n\n") # Groups Across Multiple Lines
