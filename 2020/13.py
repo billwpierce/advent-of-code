@@ -7,7 +7,7 @@ input = f.read().splitlines()  # Raw Reading
 # input = [[x for x in line] for line in input] # @d array of the input
 
 earliest_time = int(input[0])
-busses = input[1].split(",")
+buses = input[1].split(",")
 
 def is_divisible(num1, num2):
     return num1 % num2 == 0
@@ -17,7 +17,7 @@ def is_divisible(num1, num2):
 def part1():
     i = earliest_time
     while True:
-        for bus in busses:
+        for bus in buses:
             if bus == "x":
                 pass
             else:
@@ -29,7 +29,7 @@ print(part1())
 
 # Part 2
 
-test = {k:int(busses[k]) for k in range(len(busses)) if busses[k] != "x"}
+test = {k:int(buses[k]) for k in range(len(buses)) if buses[k] != "x"}
 
 from math import gcd
 
