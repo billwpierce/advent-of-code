@@ -6,9 +6,7 @@ If you have no idea what advent is, check it out at http://adventofcode.com!
 
 In general, I try to write good, well-annotated code.
 
-This is not "in general".
-
-For the sake of authenticity (and a bit because of laziness), all of the code here is presented how I wrote it day of (minus a little bit of cleanup).
+This is not one of those times. For the sake of authenticity (and a bit because of laziness), all of the code here is presented how I wrote it day of (minus a little bit of cleanup).
 
 ## Citations
 
