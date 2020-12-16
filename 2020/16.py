@@ -81,7 +81,6 @@ if part == 2:
 
     possible_names = [[] for _ in range(len(columns))]
 
-    j = 0
     for key, values in valid_ranges.items():
         for i in range(len(columns)):
             addable = True
@@ -98,17 +97,12 @@ if part == 2:
         mx = 0
         for j in range(len(possible_names)):
             name = possible_names[j]
-            print(name)
-            tb = False
             if len(name) == 1:
                 mx += 1
-                tb = False
                 for i in range(len(possible_names)):
                     if not possible_names[i] == name and name[0] in possible_names[i]:
                         possible_names[i].remove(name[0])
                 actual_columns[name[0]] = columns[j]
-            if tb:
-                break
 
     my_ticket_index = len(valid_tickets) - 1
 
