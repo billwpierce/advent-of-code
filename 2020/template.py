@@ -5,3 +5,4 @@ input = f.read().splitlines()  # Raw Reading
 # input = [int(x) for x in input] # Lines of integers
 # input = [x.split() for x in input] # Multi-part input lines, seperated by spaces
 # input = [[x for x in line] for line in input] # 2d array of the input
+# input = [x.split("\n") for x in input]
