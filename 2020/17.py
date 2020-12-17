@@ -15,56 +15,52 @@ class cubeState:
 
 # Part 1
 
-# print(input)
+known = {(-10, -10, 10)}
 
-# known = {(-10, -10, 10)}
+for y in range(len(input)):
+    for x in range(len(input[0])):
+        if input[y][x] == cubeState.active:
+            known.add((x, y, 0))
 
-# for y in range(len(input)):
-#     for x in range(len(input[0])):
-#         if input[y][x] == cubeState.active:
-#             known.add((x, y, 0))
+known.remove((-10, -10, 10))
 
-# known.remove((-10, -10, 10))
+def getCube(mp, x, y, z):
+    if not (x, y, z) in mp:
+        return cubeState.inactive
+    return cubeState.active
 
-# def getCube(mp, x, y, z):
-#     if not (x, y, z) in mp:
-#         return cubeState.inactive
-#     return cubeState.active
+neighbors = [(s, x, y) for s in range(-1, 2) for x in range(-1, 2) for y in range(-1, 2) if abs(s) + abs(x) + abs(y) != 0]
 
-# neighbors = [(s, x, y) for s in range(-1, 2) for x in range(-1, 2) for y in range(-1, 2) if abs(s) + abs(x) + abs(y) != 0]
+def getNearbyActive(mp, x, y, z):
+    ret = 0
+    for dx, dy, dz in neighbors:
+        if getCube(mp, x+dx, y+dy, z+dz) == cubeState.active:
+            ret += 1
+    return ret
 
-# def getNearbyActive(mp, x, y, z):
-#     ret = 0
-#     for dx, dy, dz in neighbors:
-#         if getCube(mp, x+dx, y+dy, z+dz) == cubeState.active:
-#             ret += 1
-#     return ret
+def updateSlices():
+    toAdd = []
+    toRemove = []
+    for x, y, z in known:
+        if getCube(known, x, y, z) == cubeState.active and not getNearbyActive(known, x, y, z) in range(2, 4):
+            toRemove.append((x, y, z))
+        for dx, dy, dz in neighbors:
+            if getCube(known, x+dx, y+dy, z+dz) == cubeState.inactive and getNearbyActive(known, x+dx, y+dy, z+dz) == 3:
+                toAdd.append((x+dx, y+dy, z+dz))
+    for tpl in toAdd:
+        if tpl in toRemove:
+            raise Exception("what")
+        else:
+            known.add(tpl)
+    for tpl in toRemove:
+        known.remove(tpl)
 
-# def updateSlices():
-#     toAdd = []
-#     toRemove = []
-#     for x, y, z in known:
-#         if getCube(known, x, y, z) == cubeState.active and not getNearbyActive(known, x, y, z) in range(2, 4):
-#             toRemove.append((x, y, z))
-#         for dx, dy, dz in neighbors:
-#             if getCube(known, x+dx, y+dy, z+dz) == cubeState.inactive and getNearbyActive(known, x+dx, y+dy, z+dz) == 3:
-#                 toAdd.append((x+dx, y+dy, z+dz))
-#     for tpl in toAdd:
-#         if tpl in toRemove:
-#             raise Exception("what")
-#         else:
-#             known.add(tpl)
-#     for tpl in toRemove:
-#         known.remove(tpl)
+for i in range(6):
+    updateSlices()
 
-# for i in range(6):
-#     updateSlices()
-
-# print(len(known))
+print(len(known))
 
 # Part 2
-
-print(input)
 
 known = {(-10, -10, -10, -10)}
 
