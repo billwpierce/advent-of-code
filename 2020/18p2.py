@@ -1,10 +1,8 @@
-f = open('in18t.txt', 'r') # Insert the correct day
+f = open('in18.txt', 'r') # Insert the correct day
 # Use one of these, depending on the day's challenges
 input = f.read().splitlines()  # Raw Reading
 
 input = [[c for c in line.replace(" ", "")] for line in input]
-
-# print(input[0])
 
 def RepresentsInt(s): # https://stackoverflow.com/questions/1265665/how-can-i-check-if-a-string-represents-an-int-without-using-try-except
     try: 
@@ -78,13 +76,13 @@ def pt(l): # Takes list, return trees
         else:
             nl.append(item)
     mul_splits = []
+    saved_index = 0
     if "*" in nl:
         for i in range(len(nl)):
             if nl[i] == "*":
-                mul_splits.append(nl[:i])
-                mul_splits.append(nl[i+1:])
-    else:
-        mul_splits = [nl]
+                mul_splits.append(nl[saved_index:i])
+                saved_index = i + 1
+    mul_splits.append(nl[saved_index:])
     ns = []
     for split in mul_splits:
         tsplit = [split[len(split)-2*i-1] for i in range((len(split)+1)//2)]
@@ -124,31 +122,21 @@ def pt(l): # Takes list, return trees
         return ns[0]
     
 def eval_from_tree(t):
-    # print(t)
     if t.is_leaf():
-        print(t.label)
         return t.label
     if len(t.branches) != 2:
         raise Exception("What")
     if t.label == "*":
         t0 = eval_from_tree(t.branches[0])
         t1 = eval_from_tree(t.branches[1])
-        print("*", t0, t1)
         return t0 * t1
     if t.label == "+":
         t0 = eval_from_tree(t.branches[0])
         t1 = eval_from_tree(t.branches[1])
-        print("+", t0, t1)
         return t0 + t1
 
-pr = read_list(input[0])
-array_rep = convert_pair_to_list(pr)
-print(pt(array_rep))
-# print(eval_from_tree(pt(array_rep)))
+sm = 0
+for line in input:
+    sm += eval_from_tree(pt(convert_pair_to_list(read_list(line))))
 
-# sm = 0
-# for line in input:
-#     print(eval_from_tree(pt(convert_pair_to_list(read_list(line)))))
-
-# print(pt(convert_pair_to_list(read_list(input[0]))))
-# print(eval_from_tree(pt(convert_pair_to_list(read_list(input[0])))))
+print(sm)
