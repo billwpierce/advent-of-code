@@ -63,11 +63,6 @@ def eval(p):
     elif p.rest.first == "*":
         return eval(p.first) * eval(p.rest.rest)
 
-# print(read_list(input[0]))
-# print(input[0])
-# print(eval(read_list(input[0])))
-# print(input[0])
-
 sm = 0
 for line in input:
     sm += eval(read_list(line))

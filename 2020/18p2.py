@@ -19,7 +19,7 @@ class Pair():
     def __repr__(self):
         return "Pair(" + repr(self.first) + ", " + repr(self.rest) + ")"
 
-class Tree:
+class Tree: # Stolen from cs61a.org
     """A tree."""
     def __init__(self, label, branches=[]):
         self.label = label
