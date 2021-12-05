@@ -16,8 +16,6 @@ boards = input
 
 min_turn = 0
 min_score = -1
-min_board = -1
-min_unmarked = -1
 
 for board in boards:
     col_count = [0 for i in range(5)]
